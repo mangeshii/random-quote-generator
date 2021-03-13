@@ -1,14 +1,28 @@
+import { useState } from "react";
+
 function App() {
-    const requestApi = async () => {
-        const response = await fetch("https://type.fit/api/quotes");
-        const data = await response.json();
-        console.log(data);
+    const [quote, setQuote] = useState("");
+
+
+    const requestApi = () => {
+        fetch("https://type.fit/api/quotes")
+        .then((res)=>res.json())
+        .then((data)=>{
+        let randomNum=Math.floor(Math.random()*data.length);
+        setQuote(data[randomNum])
+        }
+        )
+
     };
-    requestApi();
+
+
+
+
     return (
-        <button type="button" onClick={handleChangeQuote}>
-            next quote
-        </button>
+        <>
+            <button type="button" onClick={requestApi}>next quote</button>
+            <h1>{quote.text}</h1>
+        </>
     );
 }
 
