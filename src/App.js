@@ -20,6 +20,7 @@ function App() {
         "0B1354",
         "0b032d",
         "#7584AD",
+        "#000000",
     ];
 
     const requestApi = () => {
@@ -28,7 +29,7 @@ function App() {
             .then((data) => {
                 let randomNum = Math.floor(Math.random() * data.length);
                 setQuote(data[randomNum]);
-                let randomQuote = Math.floor(Math.random() * 16);
+                let randomQuote = Math.floor(Math.random() * 17);
                 setChangeBackground(colors[randomQuote]);
             });
     };
@@ -51,6 +52,13 @@ function App() {
                         <h4>{`~${quote.author}`}</h4>
                     </div>
                     <div className="button">
+                        <button style={{ backgroundColor: changeBackground }}>
+                            <a
+                                href={`https://twitter.com/intent/tweet?text=${quote.text}`}
+                            >
+                                Tweet
+                            </a>
+                        </button>
                         <button
                             type="button"
                             onClick={requestApi}
