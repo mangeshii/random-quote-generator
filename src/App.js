@@ -5,24 +5,21 @@ function App() {
     const [quote, setQuote] = useState("");
     console.log(quote);
 
-    const [changeBackground, setChangeBackground] = useState("green");
+    const [changeBackground, setChangeBackground] = useState();
+
     const colors = [
-        "#FF007F",
-        "E0115F",
-        "#4C5270",
-        "#7A4988",
-        "#601A35",
-        "#4D0F28",
-        "#311432",
-        "#228C22",
-        "#ff781f",
-        "#116DB6",
-        "#00239CFF",
-        "#FFB03E",
-        "#165BAA",
-        "0B1354",
-        "0b032d",
-        "#7584AD",
+        "RGBA(76,82,112,.7)",
+        "rgba(49,20,50,.7)",
+        "rgba(34,140,34,.7)",
+        "rgba(255,120,31,.7)",
+        "rgba(6,45,76,.7)",
+        "rgba(76,52,18,.7)",
+        "rgba(29,41,56,.7)",
+        "rgba(0,0,0,.7)",
+        "rgba(127,23,52,.7)",
+        "rgba(89,39,32,.7)",
+        "rgba(102,93,30,.7)",
+        "rgba(75,83,32,.7)",
     ];
 
     const GetQuote = async () => {
@@ -33,7 +30,7 @@ function App() {
             let randomQuote = Math.floor(Math.random() * quoteData.length);
             setQuote(quoteData[randomQuote]);
 
-            let randomColor = Math.floor(Math.random() * 16);
+            let randomColor = Math.floor(Math.random() * 12);
             setChangeBackground(colors[randomColor]);
         };
         GenerateRandomNumber();
@@ -49,7 +46,10 @@ function App() {
             className="wrapper container-fluid"
             style={{ backgroundColor: changeBackground }}
         >
-            <div className="containers">
+            <div
+                className="containers"
+                style={{ backgroundColor: changeBackground }}
+            >
                 <div className="tweet-button">
                     <a
                         href={`https://twitter.com/intent/tweet?text=${quote.text}`}
@@ -68,21 +68,21 @@ function App() {
                 <div className="opening-quote">
                     <i
                         className="fa fa-quote-left"
-                        style={{ color: changeBackground }}
+                        style={{ color: "white" }}
                     ></i>
                 </div>
                 <div className="quote-content">
-                    <h1 style={{ color: changeBackground }}>{quote.text}</h1>
+                    <h1 style={{ color: "white" }}>{quote.text}</h1>
                 </div>
                 <div className="closing-quote">
                     <i
                         className="fa fa-quote-right"
-                        style={{ color: changeBackground }}
+                        style={{ color: "white" }}
                     ></i>
                 </div>
                 <div className="author">
                     <p
-                        style={{ color: changeBackground, fontWeight: "700" }}
+                        style={{ color: "white", fontWeight: "700" }}
                     >{`~ ${quote.author}`}</p>
                 </div>
                 <div className="quote-button">
