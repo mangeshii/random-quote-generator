@@ -80,7 +80,29 @@ button:hover{
 }
 @media only screen and (max-width: 550px) {
     .containers {
-        margin: 0 1.5rem;
+        margin: 0 1rem;
+    }
+    .quote-content h1{
+        font-size: 1rem;
+
+    }
+    .quote-content{
+        padding: .4rem 1rem;
+    }
+    .fa{
+        font-size: 1.4rem;
+    }
+    .closing-quote{
+        text-align: end;
+        padding: .1rem 1.5rem .1rem 1.5rem;
+    }
+    .author{
+        text-align: end;
+        padding:0rem 1rem;
+
+    }
+    .author p{
+        font-size: .7rem;
     }
 }
 
